@@ -1,0 +1,32 @@
+# Contexte de build Docker (racine du dépôt) : on n'envoie que ce que les
+# Dockerfiles copient. Sans ce fichier, un build local embarque .venv, data/,
+# le cache DVC et frontend/node_modules (compilé pour Windows, il écraserait
+# les modules Linux installés par `npm ci` dans l'image).
+
+# Secrets : jamais dans une image
+.env
+.env.*
+!.env.example
+.dvc/
+
+# Environnements et dépendances locales
+.venv/
+**/__pycache__/
+**/node_modules/
+frontend/.next/
+
+# Gros volumes inutiles aux images (versionnés par DVC ou locaux)
+data/
+mlruns/
+mlflow.db
+notebooks/
+artifacts/eda/
+artifacts/modeling/
+books/
+slides/
+*.mp4
+
+# Divers
+.git/
+.pytest_cache/
+.ipynb_checkpoints/

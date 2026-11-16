@@ -11,8 +11,8 @@ pipeline {
 
     environment {
         // --- À renseigner : compte et dépôt DagsHub, compte Docker Hub ---
-        DAGSHUB_USER             = '<utilisateur-dagshub>'
-        DAGSHUB_REPO             = '<depot-dagshub>'
+        DAGSHUB_USER             = 'atta-hilali'
+        DAGSHUB_REPO             = 'project-mlops'
         DAGSHUB_TOKEN            = credentials('dagshub-token')
         MLFLOW_TRACKING_URI      = "https://dagshub.com/${DAGSHUB_USER}/${DAGSHUB_REPO}.mlflow"
         MLFLOW_TRACKING_USERNAME = "${DAGSHUB_USER}"
